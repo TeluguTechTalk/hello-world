@@ -72,9 +72,29 @@ const { frontmatter } = Astro.props;
       }
 
       .content :global(h2) {
-        margin-top: 50px;
-        margin-bottom: 20px;
+        margin-top: 56px;
+        margin-bottom: 18px;
         font-size: 34px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .content :global(h3) {
+        margin-top: 36px;
+        margin-bottom: 12px;
+        font-size: 22px;
+        font-weight: 600;
+        color: #e2e8f0;
+      }
+
+      .content :global(h4) {
+        margin-top: 24px;
+        margin-bottom: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        color: #93c5fd;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
       }
 
       .content :global(p) {
