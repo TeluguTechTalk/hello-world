@@ -1,17 +1,129 @@
----
+<html>
+  <head>
+    <title>Krish Tech</title>
 
----
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to bottom right, #0f172a, #1e293b);
+        color: white;
+      }
+
+      nav {
+        width: 100%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        padding: 25px 80px;
+
+        position: fixed;
+        top: 0;
+
+        background: rgba(15, 23, 42, 0.8);
+        backdrop-filter: blur(10px);
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .menu {
+        display: flex;
+        gap: 30px;
+      }
+
+      .menu a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+      }
+
+      .menu a:hover {
+        color: #60a5fa;
+      }
+
+      .hero {
+        height: 100vh;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        padding: 20px;
+      }
+
+      .hero h1 {
+        font-size: 72px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 22px;
+        color: #cbd5e1;
+
+        max-width: 700px;
+        line-height: 1.6;
+
+        margin-bottom: 40px;
+      }
+
+      .hero button {
+        padding: 16px 32px;
+
+        border: none;
+        border-radius: 12px;
+
+        background: #3b82f6;
+        color: white;
+
+        font-size: 18px;
+        cursor: pointer;
+
+        transition: 0.3s;
+      }
+
+      .hero button:hover {
+        background: #2563eb;
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <nav>
+      <div class="logo">Krish Tech</div>
+
+      <div class="menu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+
+      <h1>Build Modern Websites</h1>
+
+      <p>
+        Learn Astro and create blazing fast modern websites with clean UI and best performance.
+      </p>
+
+      <button>Get Started</button>
+
+    </section>
+
+  </body>
 </html>
