@@ -1,0 +1,155 @@
+---
+const { frontmatter } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{frontmatter.title}</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Inter, Arial, sans-serif;
+        background: #0b1120;
+        color: white;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 900px;
+        margin: auto;
+      }
+
+      nav {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav-wrapper {
+        padding: 24px 0;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .logo span {
+        color: #60a5fa;
+      }
+
+      .article {
+        padding: 80px 0;
+      }
+
+      .tag {
+        display: inline-block;
+        background: rgba(96, 165, 250, 0.12);
+        color: #93c5fd;
+        padding: 8px 16px;
+        border-radius: 999px;
+        margin-bottom: 25px;
+      }
+
+      h1 {
+        font-size: 64px;
+        margin-bottom: 30px;
+        line-height: 1.2;
+      }
+
+      /* Markdown Content CSS */
+      /* మొదటి పారాగ్రాఫ్‌ని intro లాగా మార్చడానికి */
+      .content :global(p:first-of-type) {
+        color: #94a3b8;
+        line-height: 1.9;
+        font-size: 20px;
+        margin-bottom: 50px;
+      }
+
+      .content :global(h2) {
+        margin-top: 50px;
+        margin-bottom: 20px;
+        font-size: 34px;
+      }
+
+      .content :global(p) {
+        color: #cbd5e1;
+        line-height: 1.9;
+        margin-bottom: 20px;
+        font-size: 18px;
+      }
+
+      .content :global(pre) {
+        background: #111827 !important;
+        padding: 25px;
+        border-radius: 20px;
+        overflow-x: auto;
+        margin: 30px 0;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .content :global(code) {
+        color: #93c5fd;
+        font-size: 16px;
+      }
+
+      /* Output & Interview Tip Custom Blocks */
+      .content :global(.output-box) {
+        background: rgba(255, 255, 255, 0.05);
+        padding: 20px 25px;
+        border-radius: 12px;
+        border-left: 4px solid #4ade80; /* గ్రీన్ కలర్ బార్డర్ */
+        margin-bottom: 30px;
+      }
+
+      .content :global(.output-box p) {
+        margin: 0;
+        color: #4ade80;
+        font-family: monospace;
+      }
+
+      .content :global(.tip-box) {
+        background: rgba(96, 165, 250, 0.05);
+        padding: 30px;
+        border-radius: 20px;
+        border: 1px dashed rgba(96, 165, 250, 0.5);
+        margin-top: 50px;
+      }
+
+      .content :global(.tip-box h2) {
+        margin-top: 0;
+        color: #60a5fa;
+        font-size: 30px;
+      }
+      
+      .content :global(.tip-box p) {
+        margin-bottom: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <div class="container nav-wrapper">
+        <div class="logo">Krish <span>Tech</span></div>
+      </div>
+    </nav>
+
+    <section class="article">
+      <div class="container">
+        <div class="tag">{frontmatter.tag}</div>
+        <h1>{frontmatter.title}</h1>
+
+        <div class="content">
+          <slot />
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
