@@ -1,5 +1,7 @@
 ---
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 const { frontmatter } = Astro.props;
 ---
 
@@ -26,23 +28,6 @@ const { frontmatter } = Astro.props;
         width: 90%;
         max-width: 900px;
         margin: auto;
-      }
-
-      nav {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .nav-wrapper {
-        padding: 24px 0;
-      }
-
-      .logo {
-        font-size: 28px;
-        font-weight: bold;
-      }
-
-      .logo span {
-        color: #60a5fa;
       }
 
       .article {
@@ -213,11 +198,7 @@ const { frontmatter } = Astro.props;
   </head>
 
   <body>
-    <nav>
-      <div class="container nav-wrapper">
-        <div class="logo">Krish <span>Tech</span></div>
-      </div>
-    </nav>
+    <Header />
 
     <section class="article">
       <div class="container">
@@ -229,5 +210,7 @@ const { frontmatter } = Astro.props;
         </div>
       </div>
     </section>
+
+    <Footer />
   </body>
 </html>

@@ -1,0 +1,70 @@
+---
+---
+<nav>
+  <div class="container nav-wrapper">
+    <div class="logo">Krish <span>Tech</span></div>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="#">Subjects</a>
+      <a href="#">Articles</a>
+      <a href="/about">About</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 17, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 0;
+  }
+
+  .logo {
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .logo span {
+    color: #60a5fa;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 28px;
+  }
+
+  .nav-links a {
+    color: #cbd5e1;
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    .nav-wrapper {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+</style>

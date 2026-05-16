@@ -1,192 +1,118 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
 
-    <title>Java Topics - Krish Tech</title>
+<BaseLayout title="Java Topics - Krish Tech">
+  <section class="hero">
+    <div class="container">
+      <h1>Java Topics</h1>
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+      <p>
+        Structured Java tutorials with interview-focused explanations,
+        real-world examples and production-level concepts.
+      </p>
+    </div>
+  </section>
 
-      body {
-        font-family: Inter, Arial, sans-serif;
-        background: #0b1120;
-        color: white;
-      }
+  <section class="topics">
+    <div class="container">
+      <div class="topics-grid">
+        <div class="topic-card">
+          <h3>Exception Handling</h3>
 
-      a {
-        text-decoration: none;
-      }
+          <p>
+            A complete 12-part series — from what an exception is to
+            production patterns, custom exceptions, and interview prep.
+          </p>
 
-      .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: auto;
-      }
-
-      nav {
-        border-bottom: 1px solid rgba(255,255,255,0.08);
-        background: rgba(11,17,32,0.9);
-      }
-
-      .nav-wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 24px 0;
-      }
-
-      .logo {
-        font-size: 28px;
-        font-weight: bold;
-      }
-
-      .logo span {
-        color: #60a5fa;
-      }
-
-      .hero {
-        padding: 80px 0 40px;
-      }
-
-      .hero h1 {
-        font-size: 58px;
-        margin-bottom: 20px;
-      }
-
-      .hero p {
-        color: #94a3b8;
-        font-size: 18px;
-        line-height: 1.8;
-        max-width: 700px;
-      }
-
-      .topics {
-        padding: 30px 0 100px;
-      }
-
-      .topics-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-        gap: 25px;
-      }
-
-      .topic-card {
-        background: linear-gradient(180deg, #111827, #0f172a);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 24px;
-        padding: 30px;
-        transition: 0.3s;
-      }
-
-      .topic-card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(96,165,250,0.35);
-      }
-
-      .topic-card h3 {
-        font-size: 26px;
-        margin-bottom: 15px;
-      }
-
-      .topic-card p {
-        color: #94a3b8;
-        line-height: 1.8;
-        margin-bottom: 25px;
-      }
-
-      .topic-card a {
-        color: #60a5fa;
-        font-weight: bold;
-      }
-    </style>
-  </head>
-
-  <body>
-
-    <nav>
-      <div class="container nav-wrapper">
-        <div class="logo">
-          Krish <span>Tech</span>
-        </div>
-      </div>
-    </nav>
-
-    <section class="hero">
-
-      <div class="container">
-
-        <h1>Java Topics</h1>
-
-        <p>
-          Structured Java tutorials with interview-focused explanations,
-          real-world examples and production-level concepts.
-        </p>
-
-      </div>
-
-    </section>
-
-    <section class="topics">
-
-      <div class="container">
-
-        <div class="topics-grid">
-
-          <div class="topic-card">
-
-            <h3>Exception Handling</h3>
-
-            <p>
-              A complete 12-part series — from what an exception is to
-              production patterns, custom exceptions, and interview prep.
-            </p>
-
-            <a href="/java/exception-handling-overview">
-              View Series →
-            </a>
-
-          </div>
-
-          <div class="topic-card">
-
-            <h3>Collections Framework</h3>
-
-            <p>
-              Master ArrayList, HashMap, Set and interview-focused
-              collections concepts.
-            </p>
-
-            <a href="#">
-              Coming Soon →
-            </a>
-
-          </div>
-
-          <div class="topic-card">
-
-            <h3>Java Threads</h3>
-
-            <p>
-              Understand multithreading, synchronization and concurrent
-              programming concepts clearly.
-            </p>
-
-            <a href="#">
-              Coming Soon →
-            </a>
-
-          </div>
-
+          <a href="/java/exception-handling-overview">
+            View Series →
+          </a>
         </div>
 
+        <div class="topic-card">
+          <h3>Collections Framework</h3>
+
+          <p>
+            Master ArrayList, HashMap, Set and interview-focused
+            collections concepts.
+          </p>
+
+          <a href="/java/collections-framework-overview">
+            View Series →
+          </a>
+        </div>
+
+        <div class="topic-card">
+          <h3>Java Threads</h3>
+
+          <p>
+            Understand multithreading, synchronization and concurrent
+            programming concepts clearly.
+          </p>
+
+          <a href="#">
+            Coming Soon →
+          </a>
+        </div>
       </div>
+    </div>
+  </section>
+</BaseLayout>
 
-    </section>
+<style>
+  .hero {
+    padding: 80px 0 40px;
+  }
 
-  </body>
-</html>
+  .hero h1 {
+    font-size: 58px;
+    margin-bottom: 20px;
+  }
+
+  .hero p {
+    color: #94a3b8;
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 700px;
+  }
+
+  .topics {
+    padding: 30px 0 100px;
+  }
+
+  .topics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+
+  .topic-card {
+    background: linear-gradient(180deg, #111827, #0f172a);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 30px;
+    transition: 0.3s;
+  }
+
+  .topic-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(96, 165, 250, 0.35);
+  }
+
+  .topic-card h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+  }
+
+  .topic-card p {
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 25px;
+  }
+
+  .topic-card a {
+    color: #60a5fa;
+    font-weight: bold;
+  }
+</style>

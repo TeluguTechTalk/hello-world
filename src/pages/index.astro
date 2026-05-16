@@ -1,448 +1,347 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
 
-    <title>Krish Tech</title>
+<BaseLayout title="Krish Tech">
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-badge">
+        Interview-focused developer learning platform
+      </div>
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
+      <h1>Master Java, Spring Boot & System Design Through Real Examples</h1>
 
-      body {
-        font-family: Inter, Arial, sans-serif;
-        background: #0b1120;
-        color: white;
-        overflow-x: hidden;
-      }
+      <p>
+        Structured tutorials, interview questions, production-ready examples,
+        and real-world fixes for developers preparing for jobs and building
+        modern applications.
+      </p>
 
-      a {
-        text-decoration: none;
-      }
+      <div class="hero-buttons">
+        <a href="#" class="primary-btn">Start Learning</a>
+        <a href="#" class="secondary-btn">Explore Articles</a>
+      </div>
+    </div>
+  </section>
 
-      .container {
-        width: 90%;
-        max-width: 1200px;
-        margin: auto;
-      }
+  <section class="subjects">
+    <div class="container">
+      <h2 class="section-title">Subjects</h2>
 
-      nav {
-        position: sticky;
-        top: 0;
-        z-index: 100;
+      <p class="section-subtitle">
+        Learn step-by-step with structured topics and interview-focused
+        explanations.
+      </p>
 
-        background: rgba(11, 17, 32, 0.85);
-        backdrop-filter: blur(12px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      }
+      <div class="subjects-grid">
+        <div class="subject-card">
+          <h3>Java</h3>
 
-      .nav-wrapper {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+          <p>
+            Collections, streams, multithreading, exception handling and core
+            interview concepts.
+          </p>
 
-        padding: 22px 0;
-      }
+          <a href="/java" class="read-more"> Explore Topics → </a>
+        </div>
 
-      .logo {
-        font-size: 26px;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-      }
+        <div class="subject-card">
+          <h3>Spring Boot</h3>
+          <p>
+            REST APIs, security, JWT authentication, microservices and
+            production-ready architecture.
+          </p>
+          <a href="#" class="read-more"> Explore Topics → </a>
+        </div>
 
-      .logo span {
-        color: #60a5fa;
-      }
+        <div class="subject-card">
+          <h3>Angular</h3>
+          <p>
+            Components, RxJS, routing, state management and real interview
+            preparation.
+          </p>
+          <a href="#" class="read-more"> Explore Topics → </a>
+        </div>
 
-      .nav-links {
-        display: flex;
-        gap: 28px;
-      }
-
-      .nav-links a {
-        color: #cbd5e1;
-        font-size: 16px;
-        transition: 0.3s;
-      }
-
-      .nav-links a:hover {
-        color: white;
-      }
-
-      .hero {
-        padding: 120px 0 100px;
-        position: relative;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        width: 500px;
-        height: 500px;
-        background: #2563eb;
-        filter: blur(140px);
-        opacity: 0.15;
-        top: -100px;
-        left: -120px;
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 2;
-      }
-
-      .hero-badge {
-        display: inline-block;
-        padding: 10px 18px;
-        border-radius: 999px;
-        background: rgba(96, 165, 250, 0.12);
-        border: 1px solid rgba(96, 165, 250, 0.25);
-        color: #93c5fd;
-        margin-bottom: 28px;
-        font-size: 14px;
-      }
-
-      .hero h1 {
-        font-size: 72px;
-        line-height: 1.1;
-        max-width: 900px;
-        margin-bottom: 24px;
-      }
-
-      .hero p {
-        color: #94a3b8;
-        font-size: 20px;
-        line-height: 1.8;
-        max-width: 780px;
-        margin-bottom: 40px;
-      }
-
-      .hero-buttons {
-        display: flex;
-        gap: 18px;
-        flex-wrap: wrap;
-      }
-
-      .primary-btn {
-        background: #2563eb;
-        color: white;
-        padding: 15px 28px;
-        border-radius: 14px;
-        font-size: 16px;
-        font-weight: 600;
-        transition: 0.3s;
-      }
-
-      .primary-btn:hover {
-        transform: translateY(-2px);
-        background: #1d4ed8;
-      }
-
-      .secondary-btn {
-        border: 1px solid rgba(255, 255, 255, 0.12);
-        color: white;
-        padding: 15px 28px;
-        border-radius: 14px;
-        font-size: 16px;
-      }
-
-      .subjects {
-        padding: 40px 0 80px;
-      }
-
-      .section-title {
-        font-size: 38px;
-        margin-bottom: 14px;
-      }
-
-      .section-subtitle {
-        color: #94a3b8;
-        margin-bottom: 40px;
-        font-size: 18px;
-      }
-
-      .subjects-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 24px;
-        width: 100%;
-      }
-
-      .subject-card {
-        background: rgba(15, 23, 42, 0.9);
-        border: 1px solid rgba(255, 255, 255, 0.06);
-        border-radius: 24px;
-        padding: 30px;
-        transition: 0.3s;
-        display: flex;
-        flex-direction: column;
-        height: 100%; /* Ensures the card takes full grid height */
-      }
-
-      .subject-card:hover {
-        transform: translateY(-6px);
-        border-color: rgba(96, 165, 250, 0.35);
-      }
-
-      .subject-card h3 {
-        margin-bottom: 12px;
-        font-size: 24px;
-      }
-
-      .subject-card p {
-        color: #94a3b8;
-        line-height: 1.7;
-        margin-bottom: 20px;
-        flex-grow: 1; /* Pushes the read-more link exactly to the bottom */
-      }
-
-      .subject-card .read-more {
-        margin-top: auto;
-        align-self: flex-start;
-      }
-
-      .posts {
-        padding: 20px 0 120px;
-      }
-
-      .posts-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 28px;
-      }
-
-      .post-card {
-        background: linear-gradient(180deg, #111827, #0f172a);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 28px;
-        overflow: hidden;
-        transition: 0.3s;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-      }
-
-      .post-card:hover {
-        transform: translateY(-6px);
-      }
-
-      .post-banner {
-        height: 220px;
-        background: linear-gradient(135deg, #2563eb, #7c3aed);
-      }
-
-      .post-content {
-        padding: 28px;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-      }
-
-      .post-tag {
-        display: inline-block;
-        font-size: 13px;
-        padding: 8px 14px;
-        border-radius: 999px;
-        background: rgba(96, 165, 250, 0.12);
-        color: #93c5fd;
-        margin-bottom: 18px;
-        align-self: flex-start;
-      }
-
-      .post-content h3 {
-        font-size: 28px;
-        margin-bottom: 16px;
-        line-height: 1.3;
-      }
-
-      .post-content p {
-        color: #94a3b8;
-        line-height: 1.8;
-        margin-bottom: 24px;
-        flex-grow: 1; /* Pushes the read-more link to the bottom in latest articles too */
-      }
-
-      .read-more {
-        color: #60a5fa;
-        font-weight: 600;
-      }
-      
-      .post-content .read-more {
-        margin-top: auto;
-        align-self: flex-start;
-      }
-
-      footer {
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        padding: 30px 0;
-        color: #94a3b8;
-        text-align: center;
-      }
-
-      @media (max-width: 768px) {
-        .nav-wrapper {
-          flex-direction: column;
-          gap: 20px;
-        }
-
-        .hero {
-          padding-top: 80px;
-        }
-
-        .hero h1 {
-          font-size: 48px;
-        }
-
-        .hero p {
-          font-size: 18px;
-        }
-
-        .section-title {
-          font-size: 32px;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <nav>
-      <div class="container nav-wrapper">
-        <div class="logo">Krish <span>Tech</span></div>
-
-        <div class="nav-links">
-          <a href="#">Home</a>
-          <a href="#">Subjects</a>
-          <a href="#">Articles</a>
-          <a href="#">About</a>
+        <div class="subject-card">
+          <h3>DevOps</h3>
+          <p>
+            Docker, Jenkins, CI/CD pipelines, deployment workflows and cloud
+            concepts.
+          </p>
+          <a href="#" class="read-more"> Explore Topics → </a>
         </div>
       </div>
-    </nav>
+    </div>
+  </section>
 
-    <section class="hero">
-      <div class="container hero-content">
-        <div class="hero-badge">
-          Interview-focused developer learning platform
+  <section class="posts">
+    <div class="container">
+      <h2 class="section-title">Latest Articles</h2>
+
+      <p class="section-subtitle">
+        Real-world tutorials, debugging fixes and interview-focused content.
+      </p>
+
+      <div class="posts-grid">
+        <div class="post-card">
+          <div class="post-banner"></div>
+
+          <div class="post-content">
+            <div class="post-tag">Java Threads</div>
+
+            <h3>Complete Guide to Threads in Java with Real Examples</h3>
+
+            <p>
+              Learn how Java threads work, how multithreading improves
+              performance and how to create thread-based applications with
+              working examples.
+            </p>
+
+            <a href="#" class="read-more">Read Article →</a>
+          </div>
         </div>
 
-        <h1>Master Java, Spring Boot & System Design Through Real Examples</h1>
+        <div class="post-card">
+          <div class="post-banner"></div>
 
-        <p>
-          Structured tutorials, interview questions, production-ready examples,
-          and real-world fixes for developers preparing for jobs and building
-          modern applications.
-        </p>
+          <div class="post-content">
+            <div class="post-tag">Multithreading</div>
 
-        <div class="hero-buttons">
-          <a href="#" class="primary-btn">Start Learning</a>
-          <a href="#" class="secondary-btn">Explore Articles</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="subjects">
-      <div class="container">
-        <h2 class="section-title">Subjects</h2>
-
-        <p class="section-subtitle">
-          Learn step-by-step with structured topics and interview-focused
-          explanations.
-        </p>
-
-        <div class="subjects-grid">
-          <div class="subject-card">
-            <h3>Java</h3>
+            <h3>Synchronization in Java Threads Explained Clearly</h3>
 
             <p>
-              Collections, streams, multithreading, exception handling and core
-              interview concepts.
+              Understand race conditions, synchronized methods and thread-safe
+              programming with interview-oriented examples and explanations.
             </p>
 
-            <a href="/java" class="read-more"> Explore Topics → </a>
-          </div>
-
-          <div class="subject-card">
-            <h3>Spring Boot</h3>
-            <p>
-              REST APIs, security, JWT authentication, microservices and
-              production-ready architecture.
-            </p>
-            <a href="#" class="read-more"> Explore Topics → </a>
-          </div>
-
-          <div class="subject-card">
-            <h3>Angular</h3>
-            <p>
-              Components, RxJS, routing, state management and real interview
-              preparation.
-            </p>
-            <a href="#" class="read-more"> Explore Topics → </a>
-          </div>
-
-          <div class="subject-card">
-            <h3>DevOps</h3>
-            <p>
-              Docker, Jenkins, CI/CD pipelines, deployment workflows and cloud
-              concepts.
-            </p>
-            <a href="#" class="read-more"> Explore Topics → </a>
+            <a href="#" class="read-more">Read Article →</a>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
+</BaseLayout>
 
-    <section class="posts">
-      <div class="container">
-        <h2 class="section-title">Latest Articles</h2>
+<style>
+  .hero {
+    padding: 120px 0 100px;
+    position: relative;
+  }
 
-        <p class="section-subtitle">
-          Real-world tutorials, debugging fixes and interview-focused content.
-        </p>
+  .hero::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: #2563eb;
+    filter: blur(140px);
+    opacity: 0.15;
+    top: -100px;
+    left: -120px;
+  }
 
-        <div class="posts-grid">
-          <div class="post-card">
-            <div class="post-banner"></div>
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
 
-            <div class="post-content">
-              <div class="post-tag">Java Threads</div>
+  .hero-badge {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(96, 165, 250, 0.12);
+    border: 1px solid rgba(96, 165, 250, 0.25);
+    color: #93c5fd;
+    margin-bottom: 28px;
+    font-size: 14px;
+  }
 
-              <h3>Complete Guide to Threads in Java with Real Examples</h3>
+  .hero h1 {
+    font-size: 72px;
+    line-height: 1.1;
+    max-width: 900px;
+    margin-bottom: 24px;
+  }
 
-              <p>
-                Learn how Java threads work, how multithreading improves
-                performance and how to create thread-based applications with
-                working examples.
-              </p>
+  .hero p {
+    color: #94a3b8;
+    font-size: 20px;
+    line-height: 1.8;
+    max-width: 780px;
+    margin-bottom: 40px;
+  }
 
-              <a href="#" class="read-more">Read Article →</a>
-            </div>
-          </div>
+  .hero-buttons {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
 
-          <div class="post-card">
-            <div class="post-banner"></div>
+  .primary-btn {
+    background: #2563eb;
+    color: white;
+    padding: 15px 28px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+  }
 
-            <div class="post-content">
-              <div class="post-tag">Multithreading</div>
+  .primary-btn:hover {
+    transform: translateY(-2px);
+    background: #1d4ed8;
+  }
 
-              <h3>Synchronization in Java Threads Explained Clearly</h3>
+  .secondary-btn {
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: white;
+    padding: 15px 28px;
+    border-radius: 14px;
+    font-size: 16px;
+  }
 
-              <p>
-                Understand race conditions, synchronized methods and thread-safe
-                programming with interview-oriented examples and explanations.
-              </p>
+  .subjects {
+    padding: 40px 0 80px;
+  }
 
-              <a href="#" class="read-more">Read Article →</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  .section-title {
+    font-size: 38px;
+    margin-bottom: 14px;
+  }
 
-    <footer>
-      <div class="container">© 2026 Krish Tech</div>
-    </footer>
-  </body>
-</html>
+  .section-subtitle {
+    color: #94a3b8;
+    margin-bottom: 40px;
+    font-size: 18px;
+  }
+
+  .subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    width: 100%;
+  }
+
+  .subject-card {
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 24px;
+    padding: 30px;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .subject-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(96, 165, 250, 0.35);
+  }
+
+  .subject-card h3 {
+    margin-bottom: 12px;
+    font-size: 24px;
+  }
+
+  .subject-card p {
+    color: #94a3b8;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+
+  .subject-card .read-more {
+    margin-top: auto;
+    align-self: flex-start;
+  }
+
+  .posts {
+    padding: 20px 0 120px;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 28px;
+  }
+
+  .post-card {
+    background: linear-gradient(180deg, #111827, #0f172a);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 28px;
+    overflow: hidden;
+    transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .post-card:hover {
+    transform: translateY(-6px);
+  }
+
+  .post-banner {
+    height: 220px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+  }
+
+  .post-content {
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .post-tag {
+    display: inline-block;
+    font-size: 13px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(96, 165, 250, 0.12);
+    color: #93c5fd;
+    margin-bottom: 18px;
+    align-self: flex-start;
+  }
+
+  .post-content h3 {
+    font-size: 28px;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .post-content p {
+    color: #94a3b8;
+    line-height: 1.8;
+    margin-bottom: 24px;
+    flex-grow: 1;
+  }
+
+  .read-more {
+    color: #60a5fa;
+    font-weight: 600;
+  }
+
+  .post-content .read-more {
+    margin-top: auto;
+    align-self: flex-start;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding-top: 80px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+    }
+
+    .hero p {
+      font-size: 18px;
+    }
+
+    .section-title {
+      font-size: 32px;
+    }
+  }
+</style>
