@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(mkdir -p \"C:\\\\AstroProjs\\\\hello-world\\\\src\\\\content\\\\articles\")",
+      "Bash(mkdir -p \"C:\\\\AstroProjs\\\\hello-world\\\\src\\\\pages\\\\articles\")"
     ]
   }
 }

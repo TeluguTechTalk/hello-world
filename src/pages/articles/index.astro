@@ -1,0 +1,455 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Articles - Krish Tech">
+  <section class="articles-hero">
+    <div class="container">
+      <div class="hero-label">Knowledge Hub</div>
+      <h1>Articles</h1>
+      <p>
+        Deep-dive technical write-ups across Java, Spring Boot, system design,
+        and real-world engineering — written to cut through the noise.
+      </p>
+    </div>
+  </section>
+
+  <section class="articles-body">
+    <div class="container">
+
+      <!-- Featured Article -->
+      <div class="featured-label">Featured</div>
+
+      <a href="/articles/why-concurrenthashmap-bans-null" class="featured-card">
+        <div class="featured-banner">
+          <div class="featured-banner-glow"></div>
+          <div class="featured-eyebrow">
+            <span class="article-tag tag-concurrency">Java Concurrency</span>
+            <span class="read-time">5 min read</span>
+          </div>
+          <h2 class="featured-title">
+            The Untold Reason Why ConcurrentHashMap Bans Null
+          </h2>
+        </div>
+        <div class="featured-body">
+          <p>
+            Have you ever wondered why <code>ConcurrentHashMap</code> strictly prohibits null keys and values,
+            while its older sibling <code>HashMap</code> happily accepts them? Most sources merely state it
+            creates "ambiguity." Here is the real, technical reason — and why it is a brilliant design decision.
+          </p>
+          <span class="cta-link">Read Article →</span>
+        </div>
+      </a>
+
+      <!-- Articles Grid -->
+      <div class="grid-header">
+        <h3 class="grid-title">All Articles</h3>
+        <div class="topic-filters">
+          <span class="filter active">All</span>
+          <span class="filter">Java</span>
+          <span class="filter">Spring Boot</span>
+          <span class="filter">System Design</span>
+        </div>
+      </div>
+
+      <div class="articles-grid">
+        <a href="/articles/why-concurrenthashmap-bans-null" class="article-card">
+          <div class="card-banner card-banner--blue"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="article-tag tag-concurrency">Java Concurrency</span>
+              <span class="read-time">5 min read</span>
+            </div>
+            <h4 class="card-title">
+              The Untold Reason Why ConcurrentHashMap Bans Null
+            </h4>
+            <p class="card-excerpt">
+              The real technical reason behind one of Java's most-asked interview questions — going beyond "ambiguity" to the actual race condition and locking trade-off.
+            </p>
+            <span class="card-link">Read Article →</span>
+          </div>
+        </a>
+
+        <div class="article-card article-card--coming">
+          <div class="card-banner card-banner--purple"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="article-tag tag-spring">Spring Boot</span>
+              <span class="read-time">Coming Soon</span>
+            </div>
+            <h4 class="card-title">
+              How Spring's @Transactional Really Works Under the Hood
+            </h4>
+            <p class="card-excerpt">
+              Proxy mechanics, propagation levels, self-invocation traps, and the rollback rules that trip up every developer at least once.
+            </p>
+            <span class="card-link coming-link">Coming Soon</span>
+          </div>
+        </div>
+
+        <div class="article-card article-card--coming">
+          <div class="card-banner card-banner--green"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="article-tag tag-system">System Design</span>
+              <span class="read-time">Coming Soon</span>
+            </div>
+            <h4 class="card-title">
+              Why Distributed Systems Chose Eventual Consistency Over ACID
+            </h4>
+            <p class="card-excerpt">
+              CAP theorem in plain English — with real trade-offs from Cassandra, DynamoDB, and what it means when your data is "eventually" right.
+            </p>
+            <span class="card-link coming-link">Coming Soon</span>
+          </div>
+        </div>
+
+        <div class="article-card article-card--coming">
+          <div class="card-banner card-banner--orange"></div>
+          <div class="card-body">
+            <div class="card-meta">
+              <span class="article-tag tag-java">Java</span>
+              <span class="read-time">Coming Soon</span>
+            </div>
+            <h4 class="card-title">
+              volatile vs synchronized — When One Word Changes Everything
+            </h4>
+            <p class="card-excerpt">
+              Memory visibility, happens-before guarantees, and the classic double-checked locking pattern explained with diagrams and real JVM behaviour.
+            </p>
+            <span class="card-link coming-link">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* ── Hero ── */
+  .articles-hero {
+    padding: 90px 0 50px;
+  }
+
+  .hero-label {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 999px;
+    background: rgba(96, 165, 250, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.2);
+    color: #93c5fd;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+
+  .articles-hero h1 {
+    font-size: 62px;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .articles-hero p {
+    color: #94a3b8;
+    font-size: 18px;
+    line-height: 1.8;
+    max-width: 640px;
+  }
+
+  /* ── Body ── */
+  .articles-body {
+    padding: 20px 0 120px;
+  }
+
+  .featured-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #475569;
+    margin-bottom: 16px;
+  }
+
+  /* ── Featured Card ── */
+  .featured-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: linear-gradient(180deg, #111827, #0f172a);
+    margin-bottom: 64px;
+    transition: border-color 0.3s, transform 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .featured-card:hover {
+    border-color: rgba(96, 165, 250, 0.4);
+    transform: translateY(-4px);
+  }
+
+  .featured-banner {
+    position: relative;
+    min-height: 260px;
+    background: linear-gradient(135deg, #1e3a5f 0%, #1e1b4b 50%, #0f172a 100%);
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+  }
+
+  .featured-banner-glow {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: #2563eb;
+    filter: blur(120px);
+    opacity: 0.18;
+    top: -80px;
+    right: -80px;
+    pointer-events: none;
+  }
+
+  .featured-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .featured-title {
+    font-size: 36px;
+    line-height: 1.25;
+    max-width: 720px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .featured-body {
+    padding: 36px 48px;
+  }
+
+  .featured-body p {
+    color: #94a3b8;
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 760px;
+    margin-bottom: 28px;
+  }
+
+  .featured-body code {
+    color: #93c5fd;
+    background: rgba(96, 165, 250, 0.1);
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 15px;
+  }
+
+  .cta-link {
+    color: #60a5fa;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  /* ── Grid Header ── */
+  .grid-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .grid-title {
+    font-size: 26px;
+    font-weight: 700;
+  }
+
+  .topic-filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .filter {
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #64748b;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+
+  .filter.active,
+  .filter:hover {
+    border-color: rgba(96, 165, 250, 0.4);
+    color: #93c5fd;
+    background: rgba(96, 165, 250, 0.08);
+  }
+
+  /* ── Articles Grid ── */
+  .articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  /* ── Article Card ── */
+  .article-card {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, #111827, #0f172a);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 24px;
+    overflow: hidden;
+    transition: transform 0.3s, border-color 0.3s;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .article-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(96, 165, 250, 0.35);
+  }
+
+  .article-card--coming {
+    opacity: 0.6;
+    cursor: default;
+  }
+
+  .article-card--coming:hover {
+    transform: none;
+    border-color: rgba(255, 255, 255, 0.07);
+  }
+
+  /* Card banner color variants */
+  .card-banner {
+    height: 160px;
+  }
+
+  .card-banner--blue {
+    background: linear-gradient(135deg, #1e3a5f, #1e1b4b);
+  }
+
+  .card-banner--purple {
+    background: linear-gradient(135deg, #2e1065, #1e1b4b);
+  }
+
+  .card-banner--green {
+    background: linear-gradient(135deg, #064e3b, #0f172a);
+  }
+
+  .card-banner--orange {
+    background: linear-gradient(135deg, #431407, #1e1b4b);
+  }
+
+  .card-body {
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .card-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 12px;
+  }
+
+  .card-excerpt {
+    color: #94a3b8;
+    font-size: 15px;
+    line-height: 1.75;
+    margin-bottom: 22px;
+    flex-grow: 1;
+  }
+
+  .card-link {
+    color: #60a5fa;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: auto;
+  }
+
+  .coming-link {
+    color: #475569;
+  }
+
+  /* ── Topic Tags ── */
+  .article-tag {
+    display: inline-block;
+    padding: 5px 13px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+  }
+
+  .tag-concurrency {
+    background: rgba(96, 165, 250, 0.12);
+    color: #93c5fd;
+  }
+
+  .tag-spring {
+    background: rgba(74, 222, 128, 0.12);
+    color: #86efac;
+  }
+
+  .tag-system {
+    background: rgba(167, 139, 250, 0.12);
+    color: #c4b5fd;
+  }
+
+  .tag-java {
+    background: rgba(251, 146, 60, 0.12);
+    color: #fdba74;
+  }
+
+  .read-time {
+    font-size: 13px;
+    color: #475569;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .articles-hero h1 {
+      font-size: 44px;
+    }
+
+    .featured-banner {
+      min-height: 200px;
+      padding: 28px;
+    }
+
+    .featured-title {
+      font-size: 26px;
+    }
+
+    .featured-body {
+      padding: 28px;
+    }
+
+    .grid-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
